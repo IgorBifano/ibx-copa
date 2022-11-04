@@ -4,15 +4,37 @@
     box-sizing: border-box;
 }
 
+:root {
+    --card-color-primary: #f7dd43;
+    --card-title-border-color: #746615;
+    --card-bg-color: #1d1c19;
+    --bg: url(./assets/background-yellow.svg);
+}
+
+body.blue {
+    --card-color-primary: #338af3;
+    --card-title-border-color: #338af3;
+    --card-bg-color: #202024;
+    --bg: url(./assets/background-blue.svg);
+}
+
+body.green {
+    --card-color-primary: #047c3f;
+    --card-title-border-color: #047c3f;
+    --card-bg-color: #1a1f1b;
+    --bg: url(./assets/background-green.svg);
+}
+
 ul {
     list-style: none;
 }
 
 body {
     background-color: #121214;
-    background-image: url(./assets/background-blue.svg);
-    background-position-x: center;
-    background-position-y: -715px;
+    background-image: var(--bg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 body * {
@@ -21,7 +43,8 @@ body * {
 
 #app {
     width: fit-content;
-    margin: 52px auto;
+    margin: auto;
+    padding-top: 52px;
 }
 
 header {
@@ -38,8 +61,8 @@ header {
 .card-n20 {
     padding: 32px 23px;
     text-align: center;
-    background: #1d1c19;
-    border-bottom: 2px solid #f7dd43;
+    background: var(--card-bg-color);
+    border-bottom: 2px solid var(--card-color-primary);
     border-radius: 6px;
 }
 
@@ -49,7 +72,7 @@ header {
     justify-content: center;
     align-items: center;
     padding: 8px 16px;
-    border: 1px solid #746615;
+    border: 1px solid var(--card-title-border-color);
     border-radius: 6px;
     width: fit-content;
     margin-inline: auto;
@@ -85,4 +108,24 @@ header {
     font-size: 36px;
     line-height: 125%;
     color: #E1E1E6;
+}
+
+.card-n20 h2:hover,
+.card-n20 ul li strong:hover,
+.card-n20 ul li img:hover{
+    transform: scale(1.1);
+}
+
+.card-n20 h2,
+.card-n20 ul li strong,
+.card-n20 ul li img{
+    transition: transform 0.3s;
+}
+
+@media (min-width: 400px) {
+    #cards {
+        max-width: 670px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
